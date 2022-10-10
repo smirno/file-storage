@@ -202,29 +202,8 @@ class Bucket extends BucketSubDirTemplate
      */
     protected function fetchActualAcl($acl)
     {
-        switch ($acl) {
-            case 'private': {
-                return CannedAcl::PRIVATE_ACCESS;
-            }
-            case 'public': {
-                return CannedAcl::PUBLIC_READ;
-            }
-            case 'open': {
-                return CannedAcl::PUBLIC_READ_WRITE;
-            }
-            case 'auth_read': {
-                return CannedAcl::AUTHENTICATED_READ;
-            }
-            case 'owner_read': {
-                return CannedAcl::BUCKET_OWNER_READ;
-            }
-            case 'owner_full_control': {
-                return CannedAcl::BUCKET_OWNER_FULL_CONTROL;
-            }
-            default: {
-                return $acl;
-            }
-        }
+        // Fix for latest AWS SDK
+        return $acl;
     }
 
     /**
