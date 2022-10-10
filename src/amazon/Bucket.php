@@ -174,39 +174,8 @@ class Bucket extends BucketSubDirTemplate
      */
     protected function fetchActualRegion($region)
     {
-        switch ($region) {
-            // USA :
-            case 'us_e1': {
-                return Region::US_EAST_1;
-            }
-            case 'us_w1': {
-                return Region::US_WEST_1;
-            }
-            case 'us_w2': {
-                return Region::US_WEST_2;
-            }
-            // Europe :
-            case 'eu_w1': {
-                return Region::EU_WEST_1;
-            }
-            // AP :
-            case 'apac_se1': {
-                return Region::AP_SOUTHEAST_1;
-            }
-            case 'apac_se2': {
-                return Region::AP_SOUTHEAST_2;
-            }
-            case 'apac_ne1': {
-                return Region::AP_NORTHEAST_1;
-            }
-            // South America :
-            case 'sa_e1': {
-                return Region::SA_EAST_1;
-            }
-            default: {
-                return $region;
-            }
-        }
+        // Fix for latest AWS SDK
+        return $region;
     }
 
     /**
